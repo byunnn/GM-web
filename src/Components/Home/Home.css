@@ -1,0 +1,130 @@
+@media only screen and (max-width: 768px) {
+  .progress-text {
+    font-size: 0.7rem;
+  }
+}
+
+
+.head1{
+    font-size: 3rem;
+    font-weight: bold;
+    color : black;
+    margin-top : 1.5rem;
+}
+
+.head2{
+    font-size: 2rem;
+    font-weight: bold;
+    color : black;
+    
+}
+
+.head3{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color : #145BC5;
+    margin-top : 1rem;
+}
+
+
+/* HomeFirst.js */
+
+#main_container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 80%;
+    height: 100%;
+    margin: 0 8rem 0 8rem;
+    padding : 0 0 0 0;
+    border: none; 
+}
+
+.btn-bw {
+  background-color: #4F9DF1;
+  color: #F9F9FB;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none; 
+  width: 20rem; 
+  height: 3rem;
+  border-radius: 7px;
+  margin-top: 1.5rem;
+}
+
+.sample_img1{
+    width:140%;
+    height: 130%;
+}
+
+
+#main_container2{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 0;
+  padding : 0 0 0 0;
+  border: none; 
+}
+
+
+/* HomeSecond.js */
+
+.rectangle {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #4F9DF1;
+  border-top-left-radius: 20rem;
+  border-bottom-left-radius: 20rem;
+  margin: 1rem 0 0 1rem;
+}
+
+#cellphonoe_image{
+  margin : 20rem 0 0 0
+}
+
+.home_second_child{
+  top: 20rem;
+  left :12rem
+}
+
+
+/* home_third */
+
+#home-third-first-row{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 5rem 0 0 0;
+}
+
+#home-third-second-row{
+  margin: 5rem 0 0 0;
+}
+
+#home-third-third-row{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 2rem 0 0 0;
+}
+
+
+.head4{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bar_image{
+  width: 100%;
+}
+
+#go-to-comp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 0 0;
+}

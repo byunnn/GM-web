@@ -1,0 +1,11 @@
+.url-container{
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0 0 0;
+  }
+
+.dashboard-container{
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 2rem 10rem 5rem;
+}

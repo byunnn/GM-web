@@ -1,0 +1,104 @@
+.navbar-container {
+  display: flex;
+  background-color: #363740;
+  min-height: 5rem;
+  box-shadow: 0 0 8px rgba(91, 91, 91, 0.15);
+  z-index: 1;
+  align-items: center;
+  
+}
+
+.logo {
+  cursor: pointer;
+  width: 4rem;
+  height: 3rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: auto 0; 
+}
+
+.navbar-itemList {
+  display: flex;
+  flex-direction: row;
+  align-items: bottom; 
+  justify-content: center;
+  margin: 1rem 0 0 2rem;
+  padding-left: 0;
+}
+
+.navbar-item {
+  font-size: large;
+  display: inline-flex;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+
+.form-container {
+  display: inline-flex;
+  align-items: center; 
+}
+
+.nav-link {
+  border: none; 
+  background-color: rgb(255, 255, 255);
+}
+
+.nav-image {
+  color: gray;
+  display: none;
+}
+
+.nav-name {
+  margin-bottom: 0;
+  color: #A4A6B3;
+}
+
+.nav-name-active {
+  color: white;
+}
+
+/* Edit all items for mobile displays */
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 8px rgba(91, 91, 91, 0.15);
+  }
+
+  .mpp-logo {
+    display: none;
+  }
+
+  .navbar-itemList {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .navbar-item {
+    display: flex;
+    margin-left: 1rem;
+  }
+
+  .login-form-container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .nav-name {
+    display: none;
+  }
+
+  .nav-image {
+    display: flex;
+    height: 25px;
+    width: 25px;
+  }
+}
