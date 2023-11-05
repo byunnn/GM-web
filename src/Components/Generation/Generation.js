@@ -10,6 +10,7 @@ const Generation = ({ setPage, setPageNum }) => {
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [imageFormData, setImageFormData] = useState(new FormData());
+  const [sendCheck, setSendCheck] = useState(false)
 
   const setPreview = (e) => {
 
@@ -35,7 +36,7 @@ const Generation = ({ setPage, setPageNum }) => {
     const endpoint = "home"
     axios.get(process.env.REACT_APP_API_URL + endpoint, {
       params: {
-        email : "abc@naver.com",
+        email: "abc@naver.com",
         content: "Hi"
       }
     }).then((Response) => {
@@ -47,8 +48,13 @@ const Generation = ({ setPage, setPageNum }) => {
 
   //get products list from the store
   const sendData = () => {
-
+    const email = "test@gmail.com"
+    const projectName = "project 1"
     const formData = new FormData();
+
+    formData.append('email', email);
+    formData.append('projectName', projectName);
+
     // Add each selected file to the FormData
     for (const file of selectedFiles) {
       formData.append('zip', file);
@@ -60,14 +66,16 @@ const Generation = ({ setPage, setPageNum }) => {
     for (let values of formData.values()) {
       console.log("values 확인", values);
     }
-    const endpoint = 'upload/image'
+    const endpoint = `upload/images/${email}`; 
+    console.log(endpoint)
     axios.post(process.env.REACT_APP_API_URL + endpoint, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": '*',
-      },
+      }
     }).then((Response) => {
       console.log("Response : ", Response)
+      setSendCheck(true)
     }).catch((Error) => {
       console.log(Error);
     })
@@ -104,6 +112,14 @@ const Generation = ({ setPage, setPageNum }) => {
 
       {selectedFiles.length > 0 &&
         <Button onClick={sendData}>Generate</Button>}
+
+      {sendCheck && (
+        <div>
+          <h1>Your data has been successfully sent!</h1>
+          <h2>It will be ready in approximately 5 hours</h2>
+        </div>
+      )}
+
     </div>
 
   );

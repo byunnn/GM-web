@@ -2,11 +2,10 @@ import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
 
-
 const GeneratedFileTable = ({ tableBody, handleShow}) => {
-    const tableHeader = ['Project', 'Created date', 'Requested date', 'The size of dataset', 'File']
+    const tableHeader = ['Project', 'Created date', 'Requested date', 'The size of dataset', 'File', 'Dashboard']
 
-    const handleClick = (project, productId, productName) => {
+    const handleClick = (project) => {
         handleShow()
         console.log("product Id is changed", project)
     }
@@ -27,8 +26,6 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
         link.download = fileName+'.zip'; // 다운로드될 파일의 이름을 설정하세요.
         link.click();
     };
-
-
 
     return (
         <Table responsive>
@@ -63,12 +60,12 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
                         </td>
                         {/* <td>{formatDate(product.register_date)}</td> */}
                         {/* <td><a href={product.store_url} target="_blank" rel="noopener noreferrer">다운로드</a></td> */}
-                        {/* <td><Button
+                        <td><Button
                             variant="outline-dark"
-                            onClick={() =>handleClick(project, project.product_id, project.product_name)}>
+                            onClick={() =>handleClick(project.project)}>
                             상세보기
                         </Button>
-                        </td> */}
+                        </td>
                     </tr>
                 ))}
 
