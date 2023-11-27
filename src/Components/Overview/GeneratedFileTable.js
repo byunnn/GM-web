@@ -1,13 +1,14 @@
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
+import './GeneratedFileTable.css'; 
 
 const GeneratedFileTable = ({ tableBody, handleShow}) => {
-    const tableHeader = ['Project', 'Created date', 'Requested date', 'The size of dataset', 'File', 'Dashboard']
+    const tableHeader = ['Project Name', 'Created date', 'File', 'Dashboard']
 
     const handleClick = (project) => {
-        handleShow()
-        console.log("product Id is changed", project)
+        handleShow(project)
+        console.log("project : ", project)
     }
 
     const formatDate = (dateString) => {
@@ -28,7 +29,8 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
     };
 
     return (
-        <Table responsive>
+        <div className="TableContainer">
+        <Table responsive striped bordered hover>
             <thead>
                 <tr>
                     <th></th>
@@ -41,18 +43,16 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
                 {tableBody.map((project, index) => (
                     <tr key={index + 1}>
                         <td>{index + 1}</td>
-                        <td>{project.project}</td>
+                        <td>{project.projectName}</td>
                         <td>{project.createdDate}</td>
-                        <td>{project.requestedDate}</td>
-                        <td>{project.sizeDataset}</td>
                         <td>
                             <a
-                                href={project.file}
+                                href={project.zipUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    downloadFile(project.file);
+                                    downloadFile(project.zipUrl);
                                 }}
                             >
                                 다운로드
@@ -62,7 +62,7 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
                         {/* <td><a href={product.store_url} target="_blank" rel="noopener noreferrer">다운로드</a></td> */}
                         <td><Button
                             variant="outline-dark"
-                            onClick={() =>handleClick(project.project)}>
+                            onClick={() =>handleClick(project)}>
                             상세보기
                         </Button>
                         </td>
@@ -71,6 +71,7 @@ const GeneratedFileTable = ({ tableBody, handleShow}) => {
 
             </tbody>
         </Table>
+        </div>
     );
 }
 

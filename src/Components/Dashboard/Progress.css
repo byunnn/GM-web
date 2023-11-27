@@ -1,0 +1,38 @@
+.url-container{
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0 0 0;
+  }
+
+.dashboard-container{
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto 10rem auto;
+  font-size: x-large;
+  
+}
+
+.matricsContainer {
+  margin: 5rem 7rem 10rem 7rem;
+}
+
+th, td {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.ButtonColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

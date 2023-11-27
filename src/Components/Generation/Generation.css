@@ -1,0 +1,17 @@
+.fileBox {
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 20rem;
+  margin: 2rem 5rem 2rem 5rem;
+  border: 2px dashed #acacac;
+  padding: 1rem;
+}
+
+.listContainer {
+  width: 80%;
+  height: 100%;
+  margin: 0 5rem 0 5rem;
+  padding: 0 0 0 0;
+  border: none;
+}

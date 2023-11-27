@@ -1,0 +1,24 @@
+.TableContainer {
+    margin: 5rem 7rem 10rem 7rem;
+  }
+  
+  th, td {
+    text-align: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .ButtonColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  

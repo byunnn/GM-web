@@ -15,10 +15,10 @@ const PAGES = {
     Value : 'Generation',
     Name: 'Generation',
   },
-  DASHBOARD : {
+  PROGRESS : {
     pageIndex: 3,
-    Value : 'Dashboard',
-    Name: 'Dashboard',
+    Value : 'Progress',
+    Name: 'Progress',
   },
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import GeneratedFileTable from './GeneratedFileTable';
@@ -7,27 +7,44 @@ import sampleFile from '../../data/sampleFile.zip'
 import DashBoardModal from './DashBoardModal';
 import './Overview.css';
 
+const mockProjectList = [
+  {
+    "accuracy" : [1,2],
+    "fid" :[1,2],
+    "lpips" : [1,2],
+    "id" :2,
+    "member" : [],
+    "projectName" : "project 1",
+    "zipUrl" : "sample url",
+    "createdDate" : "2020"
+
+
+
+  },
+]
 
 const Overview = ({ setPage, setPageNum }) => {
-  const [generatedFile, setGeneratedFile] = useState(false)
-  const [productId, setProductId] = useState(false)
-  const [productName, setProductName] = useState(false)
+  const [projectList, setProjectList] = useState(mockProjectList) //useState(false)
+  const [dashboardData, setDashboardData] = useState(false)
   // const [loading, setLoading] = useState(false);
 
 
   //modal
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    setProductId(false)
-    setProductName(false)
+    setDashboardData(false)
     setShow(false);
   }
-  const handleShow = () => {
+  const handleShow = (project) => {
+    setDashboardData(project)
     setShow(true);
   }
 
+
+
   //프로젝트 리스트 받아오기 (프로젝트 이름, url, 수치들 )
   //get products list from the store
+  //accuracy, fid, id, lpips, member{email,pw}, projectName, zipUrl
   const getGeneratedFile = () => {
     const email = 'test@gmail.com'
     const endpoint = `zips/${email}`
@@ -35,8 +52,7 @@ const Overview = ({ setPage, setPageNum }) => {
     }).then((Response) => {
       // setLoading(false)
       console.log("Response: ", Response)
-      console.log(Response.data)
-      // setGeneratedFile(Response.data)
+      setProjectList(Response.data)
 
     }).catch((Error) => {
       // setLoading(false)
@@ -44,27 +60,30 @@ const Overview = ({ setPage, setPageNum }) => {
     })
   }
 
-
+  useEffect(() => {
+    getGeneratedFile();
+  }, []);
 
   return (
     <div>
       {/* {loading ? <Loading /> : null} */}
 
-      {mockdata ? <DashBoardModal
+      {dashboardData ? <DashBoardModal
         show={show}
         handleClose={handleClose}
-        dashboard={mockdata} /> : null}
+        dashboard={dashboardData} /> : null}
 
-      <Button
+      {/* <Button
         variant="outline-dark"
         onClick={() => getGeneratedFile()}>
         데이터 요청
-      </Button>
+      </Button> */}
 
-      {mockdata ? <div className='table-container'>
-        <h5 className='mb-4'> 데이터 생성 이력</h5>
+      {projectList ? <div className='table-container'>
+      <h1 className="head2 text-center mt-4">데이터 생성 이력</h1>
+
         <GeneratedFileTable
-          tableBody={mockdata}
+          tableBody={projectList}
           handleShow={handleShow} />
       </div> : null}
     </div>

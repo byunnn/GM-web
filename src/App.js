@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import Home from './Components/Home/Home';
 import Overview from './Components/Overview/Overview';
 import Generation from './Components/Generation/Generation';
-import Dashboard from './Components/Dashboard/Dashboard';
+import Progress from './Components/Dashboard/Progress';
 import Navbar from './Shared/Navbar/Navbar';
 import { PAGES } from './Shared/Misc/Enums';
 
 import './App.css';
 
 function App() {
-  const [pageNum, setPageNum] = useState(PAGES.OVERVIEW.pageIndex);
-  const [page, setPage] = useState(PAGES.OVERVIEW);
+  const [pageNum, setPageNum] = useState(PAGES.GENERATION.pageIndex);
+  const [page, setPage] = useState(PAGES.GENERATION);
 
   return (
     <>
@@ -35,11 +35,14 @@ function App() {
         )}
 
         {page === PAGES.GENERATION && (
-          <Generation></Generation>
+          <Generation
+          setPage={setPage}
+          setPageNum={setPageNum}
+          page={PAGES.HOME.Name}/>
         )}
 
-        {page === PAGES.DASHBOARD && (
-          <Dashboard></Dashboard>
+        {page === PAGES.PROGRESS && (
+          <Progress></Progress>
         )}
 
 
