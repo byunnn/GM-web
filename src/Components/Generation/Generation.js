@@ -142,7 +142,7 @@ const Generation = ({ setPage, setPageNum }) => {
             (
               <div>
                 <Row className="text-center">
-                  <h2 className="head1">Please drag and drop or upload an image</h2>
+                  <h2 className="head1">Please drag and drop or upload your data</h2>
                 </Row>
 
                 <Row className='text-center mt-4'>

@@ -18,7 +18,7 @@ const Home = ({ setPage, setPageNum }) => {
 
     let options = {
         activeClass:          'active', // the class that is appended to the sections links
-        anchors: ['sectionOne', 'sectionTwo', 'sectionThree'], // the anchors for each sections
+        anchors: ['sectionOne', 'sectionTwo'], // the anchors for each sections
         arrowNavigation:      true, // use arrow keys
         className:            'SectionContainer', // the class name for the section container
         delay:                800, // the scroll animation speed
@@ -35,7 +35,7 @@ const Home = ({ setPage, setPageNum }) => {
         <SectionsContainer {...options}>
             <Section> <HomeFirst handleClick={handleClick}/></Section>
             <Section><HomeSecond handleClick={handleClick}/></Section>
-            <Section><HomeThird handleClick={handleClick}/></Section>
+            {/* <Section><HomeThird handleClick={handleClick}/></Section> */}
         </SectionsContainer>
       </>
     );
