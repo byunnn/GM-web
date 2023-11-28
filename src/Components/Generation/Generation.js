@@ -126,11 +126,14 @@ const Generation = ({ setPage, setPageNum }) => {
 
                 <h1 className="head1">👏Your data has been successfully sent!👏</h1>
                 <h1> <br /></h1>
-                <h3>We are presently in the process of handling your data and generating images.  </h3>
-                <h3>Once your model is ready to commence, <br /> the training process details will be presented on the Progress page shortly. </h3>
-                <h3> You can monitor the ongoing progress in real-time.</h3>
+
               </Row>
 
+              <Row>
+                <h3 className="info-text">🪄 We are currently in the process of handling your data and generating images.   </h3>
+                <h3 className="info-text">✨ Once your model is ready to start, the training process details will be presented on the Progress page shortly. </h3>
+                <h3 className="info-text">💡 You can monitor the ongoing progress in real-time.</h3>
+              </Row>
               <div className="button-container d-flex justify-content-center">
                 <button style={{ marginRight: '2rem' }} className='btn-bw' onClick={() => setSendCheck(false)}>Start another project</button>
                 <button className='btn-bw' onClick={() => changePage(PAGES.PROGRESS, PAGES.PROGRESS.pageIndex)}>Go to monitor the progress</button>

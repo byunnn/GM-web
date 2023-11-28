@@ -13,6 +13,11 @@
   
 }
 
+.info-text{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .matricsContainer {
   margin: 5rem 7rem 10rem 7rem;
 }

@@ -7,7 +7,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-
+import { PAGES } from '../../Shared/Misc/Enums';
 import ad1 from './src/ad1.png'
 import './Progress.css';
 
@@ -18,6 +18,11 @@ const Progress = ({ setPage, setPageNum }) => {
   const [modelRunning, setModelRunning] = useState(false)
   const [webSocketClosed, setWebSocketClosed] = useState(true)
   const [metrics, setMetrics] = useState('')
+
+  const changePage = (pageName, pageNum) => {
+    setPage(pageName);
+    setPageNum(pageNum);
+  };
 
   const getModelState = () => {
     const email = 'test@gmail.com'
@@ -80,7 +85,104 @@ const Progress = ({ setPage, setPageNum }) => {
 
   if (!modelRunning && webSocketClosed) {
     return (
-      <h1> model is not running</h1>)
+      <div>
+      <div className='component-container'>
+
+        <Row className="text-center mt-3">
+
+          <h1 className="head1">😭 There are no projects in progress 😭</h1>
+          <h1> <br /></h1>
+
+        </Row>
+
+        <Row>
+        <h3 className="info-text">Can't see the progress even though you've started and submitted your project? 🤔</h3>
+        <h3 className="info-text">It might be because your model is still getting ready. Please be patient, and check back in a few minutes</h3>
+          <h3 className="info-text">If you haven't started any projects yet, now's the perfect time to generate and get an amazing new dataset! 🚀 </h3>
+
+        </Row>
+        <div className="button-container d-flex justify-content-center">
+          <button className='btn-bw' onClick={() => changePage(PAGES.GENERATION, PAGES.GENERATION.pageIndex)}>Go to start your project</button>
+
+        </div>
+
+      </div>
+      <div className='dashboard-container'>
+          <Row className="mt-4 mb-4">
+          <Col sm={4} md={4}>
+            <Card style={{ width: '23rem' }}>
+              <Card.Img variant="top" src={ad1} />
+              <Card.Body>
+                <Card.Title>대한민국 소프트웨어대전, 소프트웨이브 2023
+                </Card.Title>
+                <Card.Text>
+                  소프트웨이브는 대한민국을 대표하는 소프트웨어-ICT 비즈니스 박람회입니다.
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item></ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
+                <Card.Link href="https://www.k-softwave.com/" target="_blank" rel="noopener noreferrer">
+                  사이트 바로가기
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col sm={4} md={4}>
+            <Card style={{ width: '23rem' }}>
+              <Card.Img variant="top" src={ad1} />
+              <Card.Body>
+                <Card.Title>대한민국 소프트웨어대전, 소프트웨이브 2023
+                </Card.Title>
+                <Card.Text>
+                  소프트웨이브는 대한민국을 대표하는 소프트웨어-ICT 비즈니스 박람회입니다.
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item></ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
+                <Card.Link href="https://www.k-softwave.com/" target="_blank" rel="noopener noreferrer">
+                  사이트 바로가기
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          </Col>
+
+
+          <Col sm={4} md={4}>
+            <Row className="mb-4">
+              <Card>
+                <Card.Header>희귀 데이터 생성 플랫폼 GM</Card.Header>
+                <Card.Body>
+                  <Card.Title>대한민국을 대표하는 소프트웨어-ICT 비즈니스 박람회을 뒤흔들다.</Card.Title>
+                  <Card.Text>
+                    생성 AI 기술을 활용하여 원본 데이터와 아주 유사한, 고품질의 새로운 생성 데이터를 제공 플랫폼
+                  </Card.Text>
+                  <a href='https://www.notion.so/GM-Generated-Medical-GM-f20d80d8b36a4bf190dbff9c8922596d?pvs=4/' target="_blank" rel="noopener noreferrer">바로가기</a>
+                </Card.Body>
+              </Card>
+            </Row>
+
+            <Row>
+              <Card>
+                <Card.Header>대한민국 소프트웨어대전, 소프트웨이브 2023</Card.Header>
+                <Card.Body>
+                  <Card.Title>2023년 11월 29일 ~ 2023년 12월 1일</Card.Title>
+                  <Card.Text>
+                    대한민국을 대표하는 소프트웨어-ICT 비즈니스 박람회.
+                  </Card.Text>
+                  <a href='https://www.k-softwave.com/' target="_blank" rel="noopener noreferrer">바로가기</a>
+                </Card.Body>
+              </Card>
+            </Row>
+          </Col>
+        </Row>
+        </div>
+      </div>
+    )
   }
 
   if (modelRunning) {

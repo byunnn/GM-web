@@ -38,11 +38,14 @@ function App() {
           <Generation
           setPage={setPage}
           setPageNum={setPageNum}
-          page={PAGES.HOME.Name}/>
+          page={PAGES.GENERATION.Name}/>
         )}
 
         {page === PAGES.PROGRESS && (
-          <Progress></Progress>
+          <Progress
+          setPage={setPage}
+          setPageNum={setPageNum}
+          page={PAGES.PROGRESS.Name}/>
         )}
 
 
