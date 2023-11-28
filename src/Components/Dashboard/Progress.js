@@ -15,7 +15,7 @@ import './Progress.css';
 
 const Progress = ({ setPage, setPageNum }) => {
 
-  const [modelRunning, setModelRunning] = useState(true)
+  const [modelRunning, setModelRunning] = useState(false)
   const [webSocketClosed, setWebSocketClosed] = useState(true)
   const [metrics, setMetrics] = useState('')
 
@@ -78,7 +78,7 @@ const Progress = ({ setPage, setPageNum }) => {
   }, [modelRunning, webSocketClosed]);
 
 
-  if (!modelRunning) {
+  if (!modelRunning && webSocketClosed) {
     return (
       <h1> model is not running</h1>)
   }

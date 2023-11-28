@@ -172,14 +172,23 @@ const Generation = ({ setPage, setPageNum }) => {
       {modelRunning === false && (
         <>
           {sendCheck ? (
-            <div>
-              <h1>Your data has been successfully sent!</h1>
-              <h2>We are currently processing your data and generating images. <br /> When your model is ready to start, The process of training models will be displayed in *** page shortly.</h2>
-              <h2>You can monitor the progress of the process in real-time.</h2>
+                <div className='component-container'>
+                <Row className="text-center mt-3">
 
-              <button className='btn-bw' onClick={() => changePage(PAGES.DASHBOARD, PAGES.DASHBOARD.pageIndex)}>Go to monitor the progress</button>
+                  <h1 className="head1">👏Your data has been successfully sent!👏</h1>
+                  <h1> <br /></h1>
+                  <h3>We are presently in the process of handling your data and generating images.  </h3>
+                  <h3>Once your model is ready to commence, <br/> the training process details will be presented on the Progress page shortly. </h3>
+                  <h3> You can monitor the ongoing progress in real-time.</h3>
+                </Row>
 
-            </div>
+                <div className="button-container d-flex justify-content-center">
+                <button style={{ marginRight: '2rem' }} className='btn-bw' onClick={() => setSendCheck(false)}>Start another project</button>
+                  <button className='btn-bw' onClick={() => changePage(PAGES.PROGRESS, PAGES.PROGRESS.pageIndex)}>Go to monitor the progress</button>
+      
+                </div>
+
+              </div>
           ) :
             (
               <div>
@@ -202,7 +211,7 @@ const Generation = ({ setPage, setPageNum }) => {
                   <Row>
                     <Form>
                       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                      <Form.Label>Project name</Form.Label>
+                        <Form.Label>Project name</Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="project name"

@@ -9,14 +9,14 @@ import './Overview.css';
 
 const mockProjectList = [
   {
-    "accuracy" : [1,2],
-    "fid" :[1,2],
-    "lpips" : [1,2],
-    "id" :2,
-    "member" : [],
-    "projectName" : "project 1",
-    "zipUrl" : "sample url",
-    "createdDate" : "2020"
+    "accuracy": [1, 2],
+    "fid": [1, 2],
+    "lpips": [1, 2],
+    "id": 2,
+    "member": [],
+    "projectName": "project 1",
+    "zipUrl": "sample url",
+    "createdDate": "2020"
 
 
 
@@ -65,27 +65,26 @@ const Overview = ({ setPage, setPageNum }) => {
   }, []);
 
   return (
-    <div>
-      {/* {loading ? <Loading /> : null} */}
+    <div className='page-container'>
 
       {dashboardData ? <DashBoardModal
         show={show}
         handleClose={handleClose}
         dashboard={dashboardData} /> : null}
 
-      {/* <Button
-        variant="outline-dark"
-        onClick={() => getGeneratedFile()}>
-        데이터 요청
-      </Button> */}
+      <div className='component-container'>
+        {projectList ?
+          <div className='table-container'>
+            <h1 className="head2 text-center">데이터 생성 이력</h1>
 
-      {projectList ? <div className='table-container'>
-      <h1 className="head2 text-center mt-4">데이터 생성 이력</h1>
+            <GeneratedFileTable
+              tableBody={projectList}
+              handleShow={handleShow} />
+          </div> : null}
 
-        <GeneratedFileTable
-          tableBody={projectList}
-          handleShow={handleShow} />
-      </div> : null}
+
+      </div>
+
     </div>
   );
 };

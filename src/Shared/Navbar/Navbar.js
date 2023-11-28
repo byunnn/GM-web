@@ -4,6 +4,7 @@ import NavbarItem from './NavbarItem';
 import { PAGES } from '../Misc/Enums';
 
 import logo from './logo.png';
+import logo2 from './logo_ver2.png';
 import './Navbar.css';
 
 const Navbar = ({ setPage, pageNum, setPageNum }) => {
