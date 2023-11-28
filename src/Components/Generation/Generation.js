@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, Row, Form } from 'react-bootstrap';
-
+import Confetti from 'react-confetti'
 import axios from 'axios';
 
 import { PAGES } from '../../Shared/Misc/Enums';
@@ -17,6 +17,7 @@ const Generation = ({ setPage, setPageNum }) => {
   const [modelRunning, setModelRunning] = useState(false)
   const [webSocketClosed, setWebSocketClosed] = useState(true)
   const [metrics, setMetrics] = useState('')
+
 
   const changePage = (pageName, pageNum) => {
     setPage(pageName);
@@ -39,64 +40,6 @@ const Generation = ({ setPage, setPageNum }) => {
     setImageFormData(formData);
   };
 
-  // const getModelState = () => {
-  //   const email = 'test@gmail.com'
-  //   const endpoint = `members/status/${email}`
-  //   axios.get(process.env.REACT_APP_API_URL + endpoint, {
-  //   }).then((Response) => {
-  //     console.log(" 모델 상태 요청 - getModelState", Response)
-
-  //     if (Response.data === 'generating') {
-  //       setModelRunning(true)
-  //       setWebSocketClosed(false)
-  //     }
-  //   }).catch((Error) => {
-  //     console.log(Error);
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   getModelState();
-  // }, [sendCheck]);
-
-  // const getModelProgress = () => {
-  //   const email = 'test@gmail.com'
-  //   const endpoint = `members/progress/status/${email}`
-  //   axios.get(process.env.REACT_APP_API_URL + endpoint, {
-  //   }).then((Response) => {
-  //     console.log("Response-getModelProgress: ", Response)
-  //     if (Response.data === 'closed') {
-  //       setWebSocketClosed(true)
-  //       setModelRunning(false)
-  //       setSendCheck(false)
-  //       setMetrics('')
-  //     }
-  //     else {
-  //       const responseString = Response.data; // Assuming Response.data is a string
-  //       const extractedValues = responseString.split(/\s+/); // Splitting by one or more whitespaces
-  //       setMetrics(extractedValues);
-
-  //     }
-  //     console.log("metrics", metrics);
-  //   }).catch((Error) => {
-  //     console.log(Error);
-  //   })
-  // }
-
-  // const intervalIdRef = useRef();
-
-  // useEffect(() => {
-  //   if (modelRunning === true && webSocketClosed === false) {
-  //     intervalIdRef.current = setInterval(() => {
-  //       getModelProgress();
-  //     }, 10000);
-  //   }
-
-  //   if (webSocketClosed === true) {
-  //     clearInterval(intervalIdRef.current);
-  //   }
-
-  // }, [modelRunning, webSocketClosed]);
 
 
   const setPreview = (e) => {
@@ -172,23 +115,29 @@ const Generation = ({ setPage, setPageNum }) => {
       {modelRunning === false && (
         <>
           {sendCheck ? (
-                <div className='component-container'>
-                <Row className="text-center mt-3">
+            <div className='component-container'>
+              <Confetti
+                width={2000}
+                height={1000}
+                numberOfPieces={150}
+                tweenDuration={50}
+              />
+              <Row className="text-center mt-3">
 
-                  <h1 className="head1">👏Your data has been successfully sent!👏</h1>
-                  <h1> <br /></h1>
-                  <h3>We are presently in the process of handling your data and generating images.  </h3>
-                  <h3>Once your model is ready to commence, <br/> the training process details will be presented on the Progress page shortly. </h3>
-                  <h3> You can monitor the ongoing progress in real-time.</h3>
-                </Row>
+                <h1 className="head1">👏Your data has been successfully sent!👏</h1>
+                <h1> <br /></h1>
+                <h3>We are presently in the process of handling your data and generating images.  </h3>
+                <h3>Once your model is ready to commence, <br /> the training process details will be presented on the Progress page shortly. </h3>
+                <h3> You can monitor the ongoing progress in real-time.</h3>
+              </Row>
 
-                <div className="button-container d-flex justify-content-center">
+              <div className="button-container d-flex justify-content-center">
                 <button style={{ marginRight: '2rem' }} className='btn-bw' onClick={() => setSendCheck(false)}>Start another project</button>
-                  <button className='btn-bw' onClick={() => changePage(PAGES.PROGRESS, PAGES.PROGRESS.pageIndex)}>Go to monitor the progress</button>
-      
-                </div>
+                <button className='btn-bw' onClick={() => changePage(PAGES.PROGRESS, PAGES.PROGRESS.pageIndex)}>Go to monitor the progress</button>
 
               </div>
+
+            </div>
           ) :
             (
               <div>
