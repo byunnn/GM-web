@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Home from './Components/Home/Home';
-import Overview from './Components/Overview/Overview';
+import History from './Components/History/History';
 import Generation from './Components/Generation/Generation';
 import Progress from './Components/Dashboard/Progress';
 import Navbar from './Shared/Navbar/Navbar';
@@ -18,11 +18,11 @@ function App() {
       <Navbar setPage={setPage} pageNum={pageNum} setPageNum={setPageNum} />
 
       <div id="page-content">
-        {page === PAGES.OVERVIEW && (
-          <Overview
+        {page === PAGES.HISTORY && (
+          <History
             setPage={setPage}
             setPageNum={setPageNum}
-            page={PAGES.OVERVIEW.Name}
+            page={PAGES.HISTORY.Name}
           />
         )}
 

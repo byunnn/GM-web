@@ -20,7 +20,7 @@ const HomeFirst = ({ handleClick }) => {
                             Our platform offers more than just generating data.
                             <br/>We also provide tools and dashboards to improve the quality of augmented medical data..
                         </h5>
-                        <button className='btn-bw' onClick={() => handleClick(PAGES.OVERVIEW, PAGES.OVERVIEW.pageIndex)}>Overview</button>
+                        <button className='btn-bw' onClick={() => handleClick(PAGES.GENERATION, PAGES.GENERATION.pageIndex)}>Generation</button>
                     </Col>
 
                     <Col xs={6} md={6} className='d-flex flex-column justigy-content-end ml-3'>

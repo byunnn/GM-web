@@ -5,10 +5,10 @@ const PAGES = {
     Name: 'Home',
   },
   
-  OVERVIEW: {
+  HISTORY: {
     pageIndex: 0,
-    Value : 'Overview',
-    Name: 'Overview',
+    Value : 'History',
+    Name: 'History',
   },
   GENERATION: {
     pageIndex: 1,
