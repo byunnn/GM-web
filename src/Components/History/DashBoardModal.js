@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Container, Modal, Button, Row, Col } from 'react-bootstrap';
-
+import metric from './src/metrics.png'
 
 import {
   /* Bar Chart */
@@ -98,6 +98,22 @@ const DashBoardModal = ({ show, handleClose, dashboard }) => {
     'rgba(201, 224, 82, 0.5)',
     'rgba(82, 247, 182, 0.5)']
 
+  // const data = {
+  //   labels,
+  //   datasets: [
+  //     {
+  //       label: 'Original data',
+  //       data: [acc_original[0], acc_generated[0], fid[0], lpips[0] * 100],
+  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  //     },
+  //     {
+  //       label: 'Generated data',
+  //       data: [acc_original[1], acc_generated[1], fid[1], lpips[1] * 100],
+  //       backgroundColor: 'rgba(53, 162, 235, 0.5)',
+  //     },
+  //   ],
+  // };
+
   const data = {
     labels,
     datasets: [
@@ -151,6 +167,17 @@ const DashBoardModal = ({ show, handleClose, dashboard }) => {
             <div style={{ height: "40rem", position: "relative", marginBottom: "1%", padding: "1%" }}>
               <Radar data={data} />
             </div>
+          </Col>
+
+
+          <Col>
+            {singleImgaeUrl && (
+              <img
+                src={metric}
+                alt="metric"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            )}
           </Col>
 
           <Col>

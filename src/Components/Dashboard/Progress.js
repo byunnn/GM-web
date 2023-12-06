@@ -73,7 +73,7 @@ const Progress = ({ setPage, setPageNum }) => {
     if (modelRunning === true && webSocketClosed === false) {
       intervalIdRef.current = setInterval(() => {
         getModelProgress();
-      }, 10000);
+      }, 1000);
     }
 
     if (webSocketClosed === true) {
